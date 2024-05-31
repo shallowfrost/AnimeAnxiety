@@ -49,6 +49,48 @@
             border-radius: 5px;
         }
 
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .authBox {
+            background-color: #202225;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .authBox h1 {
+            color: var(--header-primary, #ffffff);
+            margin-bottom: 8px;
+        }
+
+        .authBox p {
+            color: var(--header-secondary, #b9bbbe);
+            margin-bottom: 40px;
+        }
+
+        .authBox button {
+            background-color: #5865f2;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .authBox button:hover {
+            background-color: #4752c4;
+        }
+
         footer {
             background-color: #202225;
             padding: 20px;
@@ -74,7 +116,7 @@
             <a href="home.html">Home</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-            <a href="https://discord.gg/EHdRmS3jDP" target="_blank">Join the Discord</a>
+            <a onclick="window.open('discord://invite/EHdRmS3jDP')">Join the Discord</a>
             <a href="https://www.youtube.com/@animeanxiety" target="_blank">Subscribe to The Channel</a>
         </div>
     </header>
@@ -116,3 +158,5 @@
         <p>&copy; 2024 Anime Anxiety. All rights reserved.</p>
     </footer>
 </body>
+
+</html>
