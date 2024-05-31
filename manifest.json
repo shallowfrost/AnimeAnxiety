@@ -1,0 +1,19 @@
+{
+    "short_name": "",
+    "name": "",
+    "short description": "",
+    "long description": "",
+    "lang": "en",
+    "icons": [
+        {
+            "src": "./assets/images/logo.png",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "start_url": "./home.html",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#000000"
+}
