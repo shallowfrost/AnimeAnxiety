@@ -14,15 +14,13 @@
     <style>
         /* Base Styles */
         body {
-            background-color: #36393f;
+            background-color: #908f8f;
             color: #dcddde;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            /* Reset default margin */
             padding: 0;
             overflow-x: hidden;
             transition: background-color 0.3s, color 0.3s;
-            /* Smooth transition for theme toggle */
         }
 
         header,
@@ -31,7 +29,6 @@
             padding: 20px;
             text-align: center;
             transition: background-color 0.3s;
-            /* Smooth transition for theme toggle */
         }
 
         header h1 {
@@ -39,7 +36,6 @@
             margin-bottom: 1em;
         }
 
-        /* Navigation */
         .navbar {
             display: flex;
             justify-content: center;
@@ -61,7 +57,6 @@
             background-color: #5865f2;
         }
 
-        /* Subscribe Dropdown */
         .subscribe-link {
             position: relative;
             display: inline-block;
@@ -83,7 +78,6 @@
             white-space: nowrap;
             z-index: 10;
             min-width: 150px;
-            /* Ensure dropdown has enough width */
         }
 
         .subscribe-link:hover .hover-links {
@@ -101,7 +95,6 @@
             background-color: #7289da;
         }
 
-        /* Main Content */
         main {
             max-width: 900px;
             margin: 20px auto;
@@ -116,7 +109,100 @@
             transition: background-color 0.3s;
         }
 
-        /* Theme Toggle */
+        .grey-mode {
+            background-color: #555555;
+            color: #bcbcbc;
+        }
+
+        .grey-mode header,
+        .grey-mode footer {
+            background-color: #666666;
+        }
+
+        .grey-mode .navbar a {
+            color: #cccccc;
+        }
+
+        .grey-mode .navbar a:hover {
+            background-color: #888888;
+        }
+
+        .grey-mode .subscribe-link:hover,
+        .grey-mode .hover-links {
+            background-color: #999999;
+        }
+
+        .grey-mode .hover-links a:hover {
+            background-color: #aaaaaa;
+        }
+
+        .grey-mode section {
+            background-color: #777777;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #36393f;
+        }
+
+        .dark-mode header,
+        .dark-mode footer {
+            background-color: #202225;
+        }
+
+        .dark-mode .navbar a {
+            color: #dcddde;
+        }
+
+        .dark-mode .navbar a:hover {
+            background-color: #5865f2;
+        }
+
+        .dark-mode .subscribe-link:hover,
+        .dark-mode .hover-links {
+            background-color: #5865f2;
+        }
+
+        .dark-mode .hover-links a:hover {
+            background-color: #7289da;
+        }
+
+        .dark-mode section {
+            background-color: #2f3136;
+        }
+
+        /* Light Mode */
+        .light-mode {
+            background-color: #f6f6f6;
+            color: #313132;
+        }
+
+        .light-mode header,
+        .light-mode footer {
+            background-color: #e5e4e4;
+        }
+
+        .light-mode .navbar a {
+            color: #2b2c2c;
+        }
+
+        .light-mode .navbar a:hover {
+            background-color: #72dabb;
+        }
+
+        .light-mode .subscribe-link:hover,
+        .light-mode .hover-links {
+            background-color: #baf282;
+        }
+
+        .light-mode .hover-links a:hover {
+            background-color: #72dabb;
+        }
+
+        .light-mode section {
+            background-color: #eef0f3;
+        }
+
         .theme-toggle {
             position: fixed;
             bottom: 20px;
@@ -137,44 +223,6 @@
             opacity: 1;
         }
 
-        /* Light Mode Styles */
-        .light-mode {
-            background-color: #f6f6f6;
-            color: #313132;
-        }
-
-        .light-mode header,
-        .light-mode footer {
-            background-color: #e5e4e4;
-        }
-
-        .light-mode .navbar a {
-            color: #2b2c2c;
-        }
-
-        .light-mode.navbar a:hover {
-            background-color: #72dabb;
-        }
-
-        .light-mode .subscribe-link:hover,
-        .light-mode .hover-links {
-            background-color: #baf282;
-        }
-
-        .light-mode .hover-links a:hover {
-            background-color: #72dabb;
-        }
-
-        .light-mode section {
-            background-color: #eef0f3;
-        }
-
-        .light-mode .theme-toggle {
-            background-color: #e5e4e4;
-            color: #313132;
-        }
-
-
         @media (max-width: 768px) {
             header h1 {
                 font-size: 6vw;
@@ -190,9 +238,21 @@
             }
         }
     </style>
+    <script>
+        // Immediate theme application based on cached preference
+        (function () {
+            const cachedTheme = localStorage.getItem("theme");
+            if (cachedTheme) {
+                document.body.classList.add(cachedTheme);
+            } else {
+                // If no theme is cached, default to grey mode
+                document.body.classList.add("grey-mode");
+            }
+        })();
+    </script>
 </head>
 
-<body class="dark-mode">
+<body>
     <header>
         <h1>Anime Anxiety</h1>
         <nav class="navbar">
@@ -203,8 +263,7 @@
                 <a href="#" aria-haspopup="true" aria-expanded="false">Subscribe to The Channel</a>
                 <div class="hover-links">
                     <a href="https://www.youtube.com/@animeanxiety" target="_blank">Anime Anxiety</a>
-                    <a href="https://www.youtube.com/channel/UCXH26lkL9yx7x9CNcmGiJrg" target="_blank">Anime Anxiety
-                        Shorts</a>
+                    <a href="https://www.youtube.com/channel/UCXH26lkL9yx7x9CNcmGiJrg" target="_blank">Anime Anxiety Shorts</a>
                 </div>
             </div>
         </nav>
@@ -263,44 +322,36 @@
         </p>
     </footer>
 
-
-
     <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
 
     <script>
+        // Variables
+        const themeToggle = document.querySelector(".theme-toggle");
+
+        // Function to toggle theme
         function toggleTheme() {
-            document.body.classList.toggle("light-mode");
-            const isLightMode = document.body.classList.contains("light-mode");
-
-            // Set the preference in cookies or localStorage based on availability
-            if (navigator.cookieEnabled) {
-                document.cookie = `theme=${isLightMode ? "light" : "dark"}; expires=${new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
-            } else {
-                localStorage.setItem("theme", isLightMode ? "light" : "dark");
-            }
+            const currentTheme = localStorage.getItem("theme") || "grey-mode";
+            const newTheme = currentTheme === "light-mode" ? "dark-mode" : "light-mode";
+            localStorage.setItem("theme", newTheme);
+            changeTheme(newTheme);
         }
 
-        // Load preference on page load
-        window.addEventListener("DOMContentLoaded", function () {
-            const storedTheme = getThemeFromCookie() || localStorage.getItem("theme");
-            if (storedTheme) {
-                document.body.classList.add(storedTheme);
-            } else {
-                document.body.classList.add("dark-mode");
-            }
-        });
-
-        // Combined cookie retrieval
-        function getThemeFromCookie() {
-            const cookies = document.cookie.split('; ');
-            for (const cookie of cookies) {
-                const [name, value] = cookie.split('=');
-                if (name.trim() === 'theme') {
-                    return value.trim();
-                }
-            }
-            return null;
+        // Function to change theme
+        function changeTheme(theme) {
+            document.body.className = theme;
         }
+
+        // Initial setup for the theme based on the cached preference
+        const cachedTheme = localStorage.getItem("theme");
+        if (cachedTheme) {
+            changeTheme(cachedTheme);
+        } else {
+            // If no theme is cached, default to grey mode
+            document.body.classList.add("dark-mode");
+        }
+
+        // Event listener for theme toggle button
+        themeToggle.onclick = toggleTheme;
     </script>
 </body>
 
