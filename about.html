@@ -4,25 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Anxiety</title>
+    <title>Anime Anxiety - About</title>
+    <meta name="description"
+        content="Learn about Anime Anxiety, your ultimate destination for all things anime and manga. Dive into trivia, cosplay, event updates, and more.">
+    <meta name="keywords" content="Anime, Manga, Anime Community, Anime Anxiety, Cosplay, Trivia, Events, Learning">
+    <meta name="author" content="Anime Anxiety">
+    <link rel="icon" href="images/icon.png" type="image/png">
     <style>
+        /* Base Styles */
         body {
             background-color: #36393f;
             color: #dcddde;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
+            /* Reset default margin */
             padding: 0;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+            /* Smooth transition for theme toggle */
         }
 
-        header {
+        header,
+        footer {
             background-color: #202225;
             padding: 20px;
             text-align: center;
+            transition: background-color 0.3s;
+            /* Smooth transition for theme toggle */
         }
 
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+        }
+
+        /* Navigation */
         .navbar {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 20px;
         }
 
@@ -32,14 +52,59 @@
             padding: 10px 15px;
             border-radius: 5px;
             transition: background-color 0.3s;
+            display: inline-block;
+            white-space: nowrap;
         }
 
         .navbar a:hover {
             background-color: #5865f2;
         }
 
+        /* Subscribe Dropdown */
+        .subscribe-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .subscribe-link:hover {
+            background-color: #5865f2;
+        }
+
+        .hover-links {
+            display: none;
+            position: absolute;
+            background-color: #5865f2;
+            border-end-end-radius: 5px;
+            padding: 10px;
+            top: 100%;
+            width: 90%;
+            left: 0;
+            white-space: nowrap;
+            z-index: 10;
+            min-width: 150px;
+            /* Ensure dropdown has enough width */
+        }
+
+        .subscribe-link:hover .hover-links {
+            display: block;
+        }
+
+        .hover-links a {
+            color: #dcddde;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .hover-links a:hover {
+            background-color: #7289da;
+        }
+
+        /* Main Content */
         main {
-            margin: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
         }
 
         section {
@@ -47,52 +112,181 @@
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
-        footer {
-            background-color: #202225;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #414040;
+            color: #bcbcbc;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            outline: none;
+            z-index: 1000;
+            opacity: 0.8;
+            transition: opacity 0.3s, background-color 0.3s, color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            opacity: 1;
+        }
+
+        /* Light Mode Styles */
+        .light-mode {
+            background-color: #f6f6f6;
+            color: #313132;
+        }
+
+        .light-mode header,
+        .light-mode footer {
+            background-color: #e5e4e4;
+        }
+
+        .light-mode .navbar a {
+            color: #2b2c2c;
+        }
+
+        .light-mode section {
+            background-color: #eef0f3;
+        }
+
+        .light-mode .theme-toggle {
+            background-color: #e5e4e4;
+            color: #313132;
         }
 
         @media (max-width: 768px) {
-            header {
-                background-color: #202225;
-                padding-bottom: 10px;
-                padding-top: 0px;
-                text-align: center;
+            header h1 {
+                font-size: 6vw;
             }
 
             .navbar {
-                flex-direction: column;
-                align-items: center;
+                justify-content: space-around;
+            }
+
+            .navbar a {
+                font-size: 2.5vw;
+                padding: 8px 12px;
             }
         }
     </style>
 </head>
-<body>
+
+<body class="dark-mode">
     <header>
-        <h1>More About Us</h1>
-        <div class="navbar">
-            <div>
-                <a href="home.html">Home</a>
-                <a href="about.html">About</a>
+        <h1>Anime Anxiety</h1>
+        <nav class="navbar">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="https://discord.gg/EHdRmS3jDP" target="_blank">Join the Discord</a>
+            <div class="subscribe-link">
+                <a href="#" aria-haspopup="true" aria-expanded="false">Subscribe to The Channel</a>
+                <div class="hover-links">
+                    <a href="https://www.youtube.com/@animeanxiety" target="_blank">Anime Anxiety</a>
+                    <a href="https://www.youtube.com/channel/UCXH26lkL9yx7x9CNcmGiJrg" target="_blank">Anime Anxiety
+                        Shorts</a>
+                </div>
             </div>
-            <div>
-                <a onclick="window.open('https://discord.gg/EHdRmS3jDP')">Join the Discord</a>
-                <a href="https://www.youtube.com/@animeanxiety" target="_blank">Subscribe to The Channel</a>
-            </div>
-        </div>
+        </nav>
     </header>
+
     <main>
-    <div id="aboutPageContent"></div>
+        <section id="about">
+            <h2>About Anime Anxiety</h2>
+            <p>Welcome to our anime and manga community! 🌟 We’re passionate about all things anime, especially series
+                like One Punch Man and Jujutsu Kaisen. Plus, we keep up with whatever Anime Anxiety shares on his
+                YouTube channel. Feel free to chat in our various channels and explore the captivating world of anime
+                and manga with fellow fans!</p>
+        </section>
+
+        <section id="trivia">
+            <h2>Anime Trivia & Games</h2>
+            <p>Put your anime knowledge to the test with trivia, guessing games, and more, adding a playful twist to
+                your fandom.</p>
+        </section>
+
+        <section id="cosplay">
+            <h2>Cosplay Corner</h2>
+            <p>Transform into your favorite characters and share your cosplaying journey. Tips, reveals, and admiration
+                await!</p>
+        </section>
+
+        <section id="events">
+            <h2>Event Updates</h2>
+            <p>Stay ahead of the game with news on conventions, online gatherings, and streaming debuts. Be part of the
+                excitement.</p>
+        </section>
+
+        <section id="learning">
+            <h2>Learning Lounge</h2>
+            <p>Deepen your understanding of Japanese culture, language, and the artistry behind anime production.</p>
+        </section>
+
+        <section id="newbie">
+            <h2>Newbie Navigation</h2>
+            <p>No question is too small! We welcome all beginners with open arms, guiding you through the rich world of
+                anime.</p>
+        </section>
+
+        <section id="watch-parties">
+            <h2>Weekly Watch Parties</h2>
+            <p>Join fellow fans for synchronized viewing sessions, turning watching anime into a social experience.</p>
+        </section>
+
+        <section id="moderators">
+            <h2>Moderator's Musings</h2>
+            <p>Stay tuned for updates, special announcements, and interactive Q&A sessions from our dedicated mod team.
+            </p>
+        </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 Anime Anxiety. All rights reserved.</p>
+        <p>Unite, anime lovers, and let's craft an unforgettable adventure together in this vibrant community! 🚀💖アニメ
+        </p>
     </footer>
-    <script src="matrix.js"></script>
+
+    <!-- Theme toggle button -->
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("light-mode");
+            const isLightMode = document.body.classList.contains("light-mode");
+
+            // Check if cookies are enabled
+            if (navigator.cookieEnabled) {
+                // Create a cookie with the theme preference
+                document.cookie = "theme=" + (isLightMode ? "light" : "dark") + "; expires=" + new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString() + "; path=/";
+            } else {
+                // If cookies are disabled, use localStorage instead
+                localStorage.setItem("theme", isLightMode ? "light" : "dark");
+            }
+        }
+
+        // Check for existing theme cookie on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            const storedTheme = getThemeFromCookie();
+
+            if (storedTheme) {
+                document.body.classList.add(storedTheme);
+            }
+        });
+
+        // Function to retrieve the theme preference from a cookie
+        function getThemeFromCookie() {
+            const cookie = document.cookie.split('; ').find(cookie => cookie.trim().startsWith('theme='));
+            if (cookie) {
+                const theme = cookie.split('=')[1].trim();
+                return theme;
+            }
+            return null;
+        }
+    </script>
 </body>
+
 </html>

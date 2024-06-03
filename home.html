@@ -4,25 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Anxiety</title>
+    <title>Anime Anxiety - Home</title>
+    <meta name="description"
+        content="Welcome to Anime Anxiety, your ultimate digital oasis for anime enthusiasts! Dive into spirited discussions, showcase fan art, and explore diverse anime and manga content.">
+    <meta name="keywords"
+        content="Anime, Manga, Anime Community, Fan Art, Anime Discussions, One Punch Man, Jujutsu Kaisen">
+    <meta name="author" content="Anime Anxiety">
+    <link rel="icon" href="images/icon.png" type="image/png">
     <style>
+        /* Base Styles */
         body {
             background-color: #36393f;
             color: #dcddde;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
+            /* Reset default margin */
             padding: 0;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+            /* Smooth transition for theme toggle */
         }
 
-        header {
+        header,
+        footer {
             background-color: #202225;
             padding: 20px;
             text-align: center;
+            transition: background-color 0.3s;
+            /* Smooth transition for theme toggle */
         }
 
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+        }
+
+        /* Navigation */
         .navbar {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 20px;
         }
 
@@ -32,14 +53,59 @@
             padding: 10px 15px;
             border-radius: 5px;
             transition: background-color 0.3s;
+            display: inline-block;
+            white-space: nowrap;
         }
 
         .navbar a:hover {
             background-color: #5865f2;
         }
 
+        /* Subscribe Dropdown */
+        .subscribe-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .subscribe-link:hover {
+            background-color: #5865f2;
+        }
+
+        .hover-links {
+            display: none;
+            position: absolute;
+            background-color: #5865f2;
+            border-end-end-radius: 5px;
+            padding: 10px;
+            top: 100%;
+            width: 91%;
+            left: 0;
+            white-space: nowrap;
+            z-index: 10;
+            min-width: 150px;
+            /* Ensure dropdown has enough width */
+        }
+
+        .subscribe-link:hover .hover-links {
+            display: block;
+        }
+
+        .hover-links a {
+            color: #dcddde;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .hover-links a:hover {
+            background-color: #7289da;
+        }
+
+        /* Main Content */
         main {
-            margin: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
         }
 
         section {
@@ -47,52 +113,199 @@
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
-        footer {
-            background-color: #202225;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #414040;
+            color: #bcbcbc;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            outline: none;
+            z-index: 1000;
+            opacity: 0.8;
+            transition: opacity 0.3s, background-color 0.3s, color 0.3s;
         }
+
+        .theme-toggle:hover {
+            opacity: 1;
+        }
+
+        /* Light Mode Styles */
+        .light-mode {
+            background-color: #f6f6f6;
+            color: #313132;
+        }
+
+        .light-mode header,
+        .light-mode footer {
+            background-color: #e5e4e4;
+        }
+
+        .light-mode .navbar a {
+            color: #2b2c2c;
+        }
+
+        .light-mode.navbar a:hover {
+            background-color: #72dabb;
+        }
+
+        .light-mode .subscribe-link:hover,
+        .light-mode .hover-links {
+            background-color: #baf282;
+        }
+
+        .light-mode .hover-links a:hover {
+            background-color: #72dabb;
+        }
+
+        .light-mode section {
+            background-color: #eef0f3;
+        }
+
+        .light-mode .theme-toggle {
+            background-color: #e5e4e4;
+            color: #313132;
+        }
+
 
         @media (max-width: 768px) {
-            header {
-                background-color: #202225;
-                padding-bottom: 10px;
-                padding-top: 0px;
-                text-align: center;
+            header h1 {
+                font-size: 6vw;
             }
 
             .navbar {
-                flex-direction: column;
-                align-items: center;
+                justify-content: space-around;
+            }
+
+            .navbar a {
+                font-size: 2.5vw;
+                padding: 8px 12px;
             }
         }
     </style>
 </head>
-<body>
+
+<body class="dark-mode">
     <header>
-        <h1>Welcome to Anime Anxiety</h1>
-        <div class="navbar">
-            <div>
-                <a href="home.html">Home</a>
-                <a href="about.html">About</a>
+        <h1>Anime Anxiety</h1>
+        <nav class="navbar">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="https://discord.gg/EHdRmS3jDP" target="_blank">Join the Discord</a>
+            <div class="subscribe-link">
+                <a href="#" aria-haspopup="true" aria-expanded="false">Subscribe to The Channel</a>
+                <div class="hover-links">
+                    <a href="https://www.youtube.com/@animeanxiety" target="_blank">Anime Anxiety</a>
+                    <a href="https://www.youtube.com/channel/UCXH26lkL9yx7x9CNcmGiJrg" target="_blank">Anime Anxiety
+                        Shorts</a>
+                </div>
             </div>
-            <div>
-                <a onclick="window.open('https://discord.gg/EHdRmS3jDP')">Join the Discord</a>
-                <a href="https://www.youtube.com/@animeanxiety" target="_blank">Subscribe to The Channel</a>
-            </div>
-        </div>
+        </nav>
     </header>
+
     <main>
-    <div id="homePageContent"></div>
+        <section id="welcome">
+            <h2>🎉 Welcome to Anime Anxiety - Your Ultimate Digital Oasis! ✨</h2>
+            <p>Hey there, anime enthusiasts! ✨ Whether you’re a seasoned otaku or just starting your journey into the
+                anime universe, you’ve found your new digital haven. Welcome to Anime Anxiety, where passion meets
+                pixels, and the excitement never sleeps!</p>
+        </section>
+
+        <section id="discussions">
+            <h2>Diverse Discussions 🗣️</h2>
+            <p>Dive into spirited conversations about your favorite anime, manga, and everything in between. From the
+                classics to the latest releases, we cover it all. Share your insights, theories, and reviews with fellow
+                fans.</p>
+        </section>
+
+        <section id="fan-art">
+            <h2>Fan Art Frenzy 🎨</h2>
+            <p>Showcase your artistic talents or discover incredible fan creations. Our community loves to celebrate the
+                creativity that anime inspires.</p>
+        </section>
+
+        <section id="highlights">
+            <h2>Channel Highlights 🌟</h2>
+            <p>One Punch Man (OPM) Enthusiasts:</p>
+            <ul>
+                <li>#opm-manga: Delve into the pages of the original source.</li>
+                <li>#opm-webcomic: Discuss the webcomic that started it all.</li>
+                <li>#opm-anime: Relive the action-packed moments from the screen adaptations.</li>
+            </ul>
+            <p>Jujutsu Kaisen (JJK) Fanatics:</p>
+            <ul>
+                <li>#jjk-spoilers: For the brave, discuss the latest twists and turns.</li>
+                <li>#jjk-manga: Explore the intricate world of the manga.</li>
+                <li>#jjk-anime: Gather to chat about the stunning anime adaptation.</li>
+            </ul>
+        </section>
+
+        <section id="more">
+            <h2>Discover More Manga & Anime</h2>
+            <ul>
+                <li>#manga-chat: Chat about manga beyond the headlines.</li>
+                <li>#recommendations: Need a new watch or read? Look no further.</li>
+                <li>#other-anime-and-manga: A melting pot for discussions on all other anime and manga, uncovering
+                    hidden treasures.</li>
+            </ul>
+        </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 Anime Anxiety. All rights reserved.</p>
+        <p>Unite, anime lovers, and let's craft an unforgettable adventure together in this vibrant community! 🚀💖アニメ
+        </p>
     </footer>
-    <script src="matrix.js"></script>
+
+
+
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+    <script>
+        function toggleTheme() {
+            // Always toggle the light-mode class, this ensures the visual change happens
+            document.body.classList.toggle("light-mode");
+
+            // Now check the final state after toggling
+            const isLightMode = document.body.classList.contains("light-mode");
+
+            // Set the preference in cookies or localStorage based on availability
+            if (navigator.cookieEnabled) {
+                // Improved cookie setting with expiration and path
+                document.cookie = `theme=${isLightMode ? "light" : "dark"}; expires=${new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
+            } else {
+                localStorage.setItem("theme", isLightMode ? "light" : "dark");
+            }
+        }
+
+        // Load preference on page load (slightly more efficient)
+        window.addEventListener("DOMContentLoaded", function () {
+            const storedTheme = getThemeFromCookie() || localStorage.getItem("theme");
+            if (storedTheme) {
+                document.body.classList.add(storedTheme);
+            } else {
+                document.body.classList.add("dark-mode");
+            }
+        });
+
+        // Combined cookie retrieval
+        function getThemeFromCookie() {
+            const cookies = document.cookie.split('; ');
+            for (const cookie of cookies) {
+                const [name, value] = cookie.split('=');
+                if (name.trim() === 'theme') {
+                    return value.trim();
+                }
+            }
+            return null;
+        }
+    </script>
 </body>
+
 </html>
