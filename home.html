@@ -269,22 +269,18 @@
 
     <script>
         function toggleTheme() {
-            // Always toggle the light-mode class, this ensures the visual change happens
             document.body.classList.toggle("light-mode");
-
-            // Now check the final state after toggling
             const isLightMode = document.body.classList.contains("light-mode");
 
             // Set the preference in cookies or localStorage based on availability
             if (navigator.cookieEnabled) {
-                // Improved cookie setting with expiration and path
                 document.cookie = `theme=${isLightMode ? "light" : "dark"}; expires=${new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
             } else {
                 localStorage.setItem("theme", isLightMode ? "light" : "dark");
             }
         }
 
-        // Load preference on page load (slightly more efficient)
+        // Load preference on page load
         window.addEventListener("DOMContentLoaded", function () {
             const storedTheme = getThemeFromCookie() || localStorage.getItem("theme");
             if (storedTheme) {
