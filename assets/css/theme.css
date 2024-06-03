@@ -1,0 +1,113 @@
+        .grey-mode {
+            background-color: #555555;
+            color: #bcbcbc;
+        }
+
+        .grey-mode header,
+        .grey-mode footer {
+            background-color: #666666;
+        }
+
+        .grey-mode .navbar a {
+            color: #cccccc;
+        }
+
+        .grey-mode .navbar a:hover {
+            background-color: #888888;
+        }
+
+        .grey-mode .subscribe-link:hover,
+        .grey-mode .hover-links {
+            background-color: #999999;
+        }
+
+        .grey-mode .hover-links a:hover {
+            background-color: #aaaaaa;
+        }
+
+        .grey-mode section {
+            background-color: #777777;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #36393f;
+        }
+
+        .dark-mode header,
+        .dark-mode footer {
+            background-color: #202225;
+        }
+
+        .dark-mode .navbar a {
+            color: #dcddde;
+        }
+
+        .dark-mode .navbar a:hover {
+            background-color: #5865f2;
+        }
+
+        .dark-mode .subscribe-link:hover,
+        .dark-mode .hover-links {
+            background-color: #5865f2;
+        }
+
+        .dark-mode .hover-links a:hover {
+            background-color: #7289da;
+        }
+
+        .dark-mode section {
+            background-color: #2f3136;
+        }
+
+        /* Light Mode */
+        .light-mode {
+            background-color: #f6f6f6;
+            color: #313132;
+        }
+
+        .light-mode header,
+        .light-mode footer {
+            background-color: #e5e4e4;
+        }
+
+        .light-mode .navbar a {
+            color: #2b2c2c;
+        }
+
+        .light-mode .navbar a:hover {
+            background-color: #72dabb;
+        }
+
+        .light-mode .subscribe-link:hover,
+        .light-mode .hover-links {
+            background-color: #baf282;
+        }
+
+        .light-mode .hover-links a:hover {
+            background-color: #72dabb;
+        }
+
+        .light-mode section {
+            background-color: #eef0f3;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #414040;
+            color: #bcbcbc;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            outline: none;
+            z-index: 1000;
+            opacity: 0.8;
+            transition: opacity 0.3s, background-color 0.3s, color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            opacity: 1;
+        }
