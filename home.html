@@ -11,20 +11,18 @@
         content="Anime, Manga, Anime Community, Fan Art, Anime Discussions, One Punch Man, Jujutsu Kaisen">
     <meta name="author" content="Anime Anxiety">
     <link rel="icon" href="./assets/images/icon.png" type="image/png">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="./assets/css/theme.css">    
     <script>
-        // Immediate theme application based on cached preference
         (function () {
             const cachedTheme = localStorage.getItem("theme");
             if (cachedTheme) {
-                document.body.classList.add(cachedTheme);
-            } else {
-                // If no theme is cached, default to grey mode
-                document.body.classList.add("dark-mode");
+                document.getElementById('styleSheet').href = `./assets/css/theme/${cachedTheme}.css`;
             }
         })();
     </script>
+
+    <link rel="stylesheet" href="./assets/css/settings.css">
+    <link rel="stylesheet" href="./assets/css/theme/dark.css">
+    <link id="styleSheet" rel="stylesheet" href="./assets/css/theme/dark.css">
 </head>
 
 <body>
@@ -38,7 +36,8 @@
                 <a href="#" aria-haspopup="true" aria-expanded="false">Subscribe to The Channel</a>
                 <div class="hover-links">
                     <a href="https://www.youtube.com/@animeanxiety" target="_blank">Anime Anxiety</a>
-                    <a href="https://www.youtube.com/channel/UCXH26lkL9yx7x9CNcmGiJrg" target="_blank">Anime Anxiety Shorts</a>
+                    <a href="https://www.youtube.com/channel/UCXH26lkL9yx7x9CNcmGiJrg" target="_blank">Anime Anxiety
+                        Shorts</a>
                 </div>
             </div>
         </nav>
@@ -97,8 +96,35 @@
         </p>
     </footer>
 
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    <!-- Settings panel container -->
+    <div class="settings-panel-container" id="settingsPanelContainer">
+        <div class="settings-panel">
+            <table>
+                <tr>
+                    <td colspan="3"><span>Theme</span></td>
+                </tr>
+                <tr>
+                    <td><button id="btnDark">dark-mode</button></td>
+                    <td><button id="btnGrey">grey-mode</button></td>
+                    <td><button id="btnLight">light-mode</button></td>
+                </tr>
+                <tr>
+                    <td><button id="btnSimLight">simple-light</button></td>
+                    <td><button id="btnSimDark">simple-dark</button></td>
+                    <td><button id="btnDefaultTheme">reset theme</button></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <button id="btnResetSettings">Reset Settings</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <button class="settings-icon" id="btnSettings">⚙️</button>
 
+    <script src="./assets/javascript/settings.js"></script>
     <script src="./assets/javascript/cookies.js"></script>
 </body>
+
 </html>

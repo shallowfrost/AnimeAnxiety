@@ -1,29 +1,31 @@
-// Variables
-const themeToggle = document.querySelector(".theme-toggle");
-
-// Function to toggle theme
-function toggleTheme() {
-    const currentTheme = localStorage.getItem("theme") || "grey-mode";
-    const newTheme = currentTheme === "light-mode" ? "dark-mode" : "light-mode";
-    localStorage.setItem("theme", newTheme);
-    changeTheme(newTheme);
-}
-
-// Function to change theme
-function changeTheme(theme) {
-    document.body.className = theme;
-}
-
-// Initial setup for the theme based on the cached preference
+// cookies.js
+const styleSheet = document.getElementById('styleSheet');
 const cachedTheme = localStorage.getItem("theme");
-if (cachedTheme) {
-    changeTheme(cachedTheme);
-} else {
-    // If no theme is cached, default to grey mode
-    document.body.classList.add("dark-mode");
+
+window.onload = function() {
+  if (cachedTheme) {
+    setTheme(cachedTheme);
+  } else {
+    setTheme("dark");
+    localStorage.setItem("theme", "dark");
+  }
+};
+
+
+document.getElementById("btnDark").addEventListener("click", 
+() => setTheme('dark'));
+document.getElementById("btnLight").addEventListener("click", 
+() => setTheme('light'));
+document.getElementById("btnGrey").addEventListener("click", 
+() => setTheme('grey'));
+document.getElementById("btnSimLight").addEventListener("click", 
+() => setTheme('simple-light'));
+document.getElementById("btnSimDark").addEventListener("click", 
+() => setTheme('simple-dark'));
+document.getElementById("btnDefaultTheme").addEventListener("click", 
+() => setTheme('dark'));
+
+function setTheme(theme) {
+    styleSheet.href = `./assets/css/theme/${theme}.css`;
+  localStorage.setItem("theme", theme);
 }
-
-document.body.classList.add("transition")
-
-// Event listener for theme toggle button
-themeToggle.onclick = toggleTheme;

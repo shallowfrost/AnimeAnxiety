@@ -1,0 +1,117 @@
+:root {
+    --settings-primary-color: #414040;
+    --settings-secondary-color: #f7f7f7;
+    --settings-background-color: #bcbbbb;
+    --settings-border-color: #818080;
+    --settings-text-color: #bcbcbc;
+    --settings-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    --settings-transition-duration: 0.3s;
+}
+
+.settings-panel-container {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.01);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;  /* Ensure panel is above other elements */
+    transition: opacity var(--settings-transition-duration);
+}
+
+.settings-panel {
+    background-color: var(--settings-secondary-color);
+    color: var(--settings-primary-color);
+    padding: 20px;
+    border: 1px solid var(--settings-border-color);
+    box-shadow: var(--settings-box-shadow);
+    width: auto;
+    border-radius: 10px;
+    z-index: 1000;
+    opacity: 1;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+#btnResetSettings {
+    display: none;
+}
+
+.settings-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: var(--settings-primary-color);
+    color: var(--settings-text-color);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color var(--settings-transition-duration);
+    z-index: 1000;  /* Ensure icon is above other elements */
+}
+
+.settings-icon:hover {
+    background-color: #555555;
+}
+
+.settings-panel table {
+    width: 100%;
+}
+
+.settings-panel td {
+    padding: 5px;
+}
+
+.settings-panel button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--settings-primary-color);
+    color: var(--settings-text-color);
+    border: 1px solid var(--settings-border-color);
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color var(--settings-transition-duration), color var(--settings-transition-duration);
+}
+
+.settings-panel button:hover {
+    background-color: #555555;
+    color: #ffffff;
+}
+
+.open-settings {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--settings-primary-color);
+    color: var(--settings-text-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    outline: none;
+    z-index: 1000;
+    opacity: 0.8;
+    transition: opacity var(--settings-transition-duration), background-color var(--settings-transition-duration), color var(--settings-transition-duration);
+}
+
+.open-settings:hover {
+    opacity: 1;
+    background-color: #555555;
+    color: #ffffff;
+}
+
+.settings-panel-container.open {
+    display: flex;
+    opacity: 1;
+}
