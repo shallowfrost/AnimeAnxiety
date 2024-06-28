@@ -1,0 +1,60 @@
+/* links.css */
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 20px;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+#linksContainer {
+    padding: 0 10px;
+}
+
+.link-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--section-bg);
+    transition: background-color 0.3s;
+}
+
+.link-card:hover {
+    background-color: var(--hover-bg);
+}
+
+.link-card img {
+    max-width: 100px;
+    margin-right: 16px;
+}
+
+.link-card .content {
+    flex-grow: 1;
+}
+
+.link-card h3 {
+    margin: 0 0 8px 0;
+}
+
+.link-card p {
+    margin: 0 0 8px 0;
+}
+
+/* Styles for cards without links */
+.no-link {
+    pointer-events: none;
+    cursor: default;
+}
+
+.no-link:hover {
+    background-color: var(--section-bg);
+}

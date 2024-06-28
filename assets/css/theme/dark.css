@@ -55,6 +55,7 @@ header h1 {
 }
 
 .subscribe-link {
+    position: relative;
     display: inline-block;
 }
 

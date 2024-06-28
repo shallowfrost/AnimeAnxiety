@@ -30,30 +30,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         matrix = matrix.map(row => row.filter((cell, index) => columnNotEmpty[index]));
 
-        // Add an empty row at the end
-        if (matrix.length > 0) {
-            let headers = matrix.shift();
-            matrix.unshift(headers);
-            let newRow = Array(headers.length).fill('');
-            matrix.push(newRow);
-        } else {
-            console.log('No data available.');
-        }
-
         return matrix;
     }
 
     function matrixToHtml(matrix) {
-        let htmlString = '';
+        let headers = matrix.shift(); // Remove the header row
+        let container = document.createElement('div');
 
         matrix.forEach(row => {
-            row.forEach(cell => {
-                htmlString += cell;
-            });
-        });
+            let card;
+            if (row[1]) { // If there is a link
+                card = document.createElement('a');
+                card.href = row[1]; // Link URL
+                card.target = '_blank'; // Open in a new tab
+                card.className = 'link-card';
+            } else {
+                card = document.createElement('div');
+                card.className = 'link-card no-link';
+            }
 
-        let container = document.createElement('div');
-        container.innerHTML = htmlString;
+            if (row[3]) { // Image link
+                let img = document.createElement('img');
+                img.src = row[3];
+                card.appendChild(img);
+            }
+
+            let content = document.createElement('div');
+            content.className = 'content';
+
+            let title = document.createElement('h3');
+            title.textContent = row[0];
+            content.appendChild(title);
+
+            let description = document.createElement('p');
+            description.textContent = row[2];
+            content.appendChild(description);
+
+            card.appendChild(content);
+            container.appendChild(card);
+        });
 
         return container;
     }
@@ -72,15 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(csvData => {
                 let matrix = csvToMatrix(csvData);
                 let content = matrixToHtml(matrix);
+
+                // Append the content to the specified parent element
                 document.getElementById(parentElementID).appendChild(content);
-                console.log(content);
             })
             .catch(error => {
                 console.error('Error fetching CSV:', error);
             });
-
     }
-
-    loadPageContent('1440147431', 'homePageContent');
-    loadPageContent('657760509', 'aboutPageContent');
+    // Load data from your Google Sheets
+    loadPageContent('1440147431', 'linksContainer');
 });
