@@ -1,6 +1,7 @@
 /* links.css */
 @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
 
+
 body {
     background-color: var(--background-color);
     color: var(--text-color);

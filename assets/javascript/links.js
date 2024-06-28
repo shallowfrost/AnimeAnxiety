@@ -38,36 +38,38 @@ document.addEventListener('DOMContentLoaded', () => {
         let container = document.createElement('div');
 
         matrix.forEach(row => {
-            let card;
-            if (row[1]) { // If there is a link
-                card = document.createElement('a');
-                card.href = row[1]; // Link URL
-                card.target = '_blank'; // Open in a new tab
-                card.className = 'link-card';
-            } else {
-                card = document.createElement('div');
-                card.className = 'link-card no-link';
+            if (row[4].toLowerCase() === 'true') { // Check if the 5th column is true
+                let card;
+                if (row[1]) { // If there is a link
+                    card = document.createElement('a');
+                    card.href = row[1]; // Link URL
+                    card.target = '_blank'; // Open in a new tab
+                    card.className = 'link-card';
+                } else {
+                    card = document.createElement('div');
+                    card.className = 'link-card no-link';
+                }
+
+                if (row[3]) { // Image link
+                    let img = document.createElement('img');
+                    img.src = row[3];
+                    card.appendChild(img);
+                }
+
+                let content = document.createElement('div');
+                content.className = 'content';
+
+                let title = document.createElement('h3');
+                title.textContent = row[0];
+                content.appendChild(title);
+
+                let description = document.createElement('p');
+                description.textContent = row[2];
+                content.appendChild(description);
+
+                card.appendChild(content);
+                container.appendChild(card);
             }
-
-            if (row[3]) { // Image link
-                let img = document.createElement('img');
-                img.src = row[3];
-                card.appendChild(img);
-            }
-
-            let content = document.createElement('div');
-            content.className = 'content';
-
-            let title = document.createElement('h3');
-            title.textContent = row[0];
-            content.appendChild(title);
-
-            let description = document.createElement('p');
-            description.textContent = row[2];
-            content.appendChild(description);
-
-            card.appendChild(content);
-            container.appendChild(card);
         });
 
         return container;
@@ -95,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error fetching CSV:', error);
             });
     }
+
     // Load data from your Google Sheets
-    loadPageContent('1440147431', 'linksContainer');
+    loadPageContent('1440147431', 'linksContainer'); // Adjust sheet ID and parent element ID as needed
 });
