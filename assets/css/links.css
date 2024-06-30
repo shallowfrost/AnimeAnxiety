@@ -1,6 +1,4 @@
-/* links.css */
 @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
-
 
 body {
     background-color: var(--background-color);
@@ -13,6 +11,9 @@ body {
 }
 
 #linksContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 0 10px;
 }
 
@@ -27,6 +28,7 @@ body {
     color: var(--text-color);
     background-color: var(--section-bg);
     transition: background-color 0.3s;
+    max-width: 768px;
 }
 
 .link-card:hover {
@@ -62,8 +64,19 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .link-card .content {
-        padding-left: 0 !important;
-        text-align: left !important;
+    .link-card.vertical {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .link-card.vertical img {
+        max-width: 150px; /* Assuming original size is 100px, this makes it 150% */
+        margin-right: 0;
+    }
+    .link-card.vertical .content {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: calc(100% - 20px); /* Full width minus padding */
+        text-align: center; /* Center align text */
     }
 }

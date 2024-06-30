@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const TITLE_COLUMN = 0;
+    const LINK_COLUMN = 1;
+    const DESCRIPTION_COLUMN = 2;
+    const IMAGE_COLUMN = 3;
+    const SHOW_COLUMN = 4;
+    const CENTER_TEXT_COLUMN = 5;
+    const PADDING_LEFT_COLUMN = 6;
+    const IMAGE_HEIGHT_COLUMN = 7;
+    const IMAGE_WIDTH_COLUMN = 8;
+    const VERTICAL_LAYOUT_COLUMN = 9;
+
+    const SPREADSHEET_ID = '1c2LVY3M4CwtR0AYsdukq8V1mPiN5rLNVWo8MOUNR1Ds';
+    const SHEET_ID = '1440147431';
+
     function csvToMatrix(csvString) {
         let rows = csvString.trim().split('\n').filter(row => row.trim() !== '');
         let matrix = [];
@@ -38,11 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let container = document.createElement('div');
 
         matrix.forEach(row => {
-            if (row[4].toLowerCase() === 'true') { // Check if the 5th column is true
+            if (row[SHOW_COLUMN].toLowerCase() === 'true') { // Check if the show column is true
                 let card;
-                if (row[1]) { // If there is a link
+                if (row[LINK_COLUMN]) { // If there is a link
                     card = document.createElement('a');
-                    card.href = row[1]; // Link URL
+                    card.href = row[LINK_COLUMN]; // Link URL
                     card.target = '_blank'; // Open in a new tab
                     card.className = 'link-card';
                 } else {
@@ -50,31 +64,35 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.className = 'link-card no-link';
                 }
 
-                if (row[3]) { // Image link
+                if (row[IMAGE_COLUMN]) { // Image link
                     let img = document.createElement('img');
-                    img.src = row[3];
-                    if (row[7]) img.style.height = row[7];
-                    if (row[8]) img.style.width = row[8];
+                    img.src = row[IMAGE_COLUMN];
+                    if (row[IMAGE_HEIGHT_COLUMN]) img.style.height = row[IMAGE_HEIGHT_COLUMN];
+                    if (row[IMAGE_WIDTH_COLUMN]) img.style.width = row[IMAGE_WIDTH_COLUMN];
                     card.appendChild(img);
                 }
 
                 let content = document.createElement('div');
                 content.className = 'content';
 
-                if (row[5].toLowerCase() === 'true') { // Center text if 6th column is true
+                if (row[CENTER_TEXT_COLUMN].toLowerCase() === 'true') { // Center text if column is true
                     content.style.textAlign = 'center';
                 }
 
-                if (row[6] && window.innerWidth > 768) { // Add padding-left on larger screens based on 7th column
-                    content.style.paddingLeft = `${row[6]}px`;
+                if (row[PADDING_LEFT_COLUMN] && window.innerWidth > 768) { // Add padding-left on larger screens based on column value
+                    content.style.paddingLeft = `${row[PADDING_LEFT_COLUMN]}px`;
+                }
+
+                if (row[VERTICAL_LAYOUT_COLUMN].toLowerCase() === 'true') { // Stack content vertically if column is true
+                    card.classList.add('vertical');
                 }
 
                 let title = document.createElement('h3');
-                title.textContent = row[0];
+                title.textContent = row[TITLE_COLUMN];
                 content.appendChild(title);
 
                 let description = document.createElement('p');
-                description.textContent = row[2];
+                description.textContent = row[DESCRIPTION_COLUMN];
                 content.appendChild(description);
 
                 card.appendChild(content);
@@ -86,8 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadPageContent(sheetID, parentElementID) {
-        const spreadSheetID = '1c2LVY3M4CwtR0AYsdukq8V1mPiN5rLNVWo8MOUNR1Ds';
-        const spreadSheetUrl = `https://docs.google.com/spreadsheets/d/${spreadSheetID}/export?format=csv&gid=${sheetID}`;
+        const spreadSheetUrl = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/export?format=csv&gid=${sheetID}`;
 
         fetch(spreadSheetUrl)
             .then(response => {
@@ -109,5 +126,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Load data from your Google Sheets
-    loadPageContent('1440147431', 'linksContainer'); // Adjust sheet ID and parent element ID as needed
+    loadPageContent(SHEET_ID, 'linksContainer'); // Adjust sheet ID and parent element ID as needed
 });
