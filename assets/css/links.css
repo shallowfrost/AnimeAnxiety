@@ -1,22 +1,23 @@
 /* links.css */
 @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
 
-:root {
-    --border-color: #ccc;
-}
 
 body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: background-color 0.3s, color 0.3s;
-    margin: 10px;
-    padding: 10px;
+    margin: 20px;
+    padding: 20px;
     overflow-x: hidden;
 }
 
+#linksContainer {
+    padding: 0 10px;
+}
+
 .link-card {
-    border: 1px solid var(--border-color);
+    border: 1px solid #ccc;
     border-radius: 8px;
     padding: 16px;
     margin: 16px 0;
@@ -25,35 +26,31 @@ body {
     text-decoration: none;
     color: var(--text-color);
     background-color: var(--section-bg);
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s;
+}
+
+.link-card:hover {
+    background-color: var(--hover-bg);
 }
 
 .link-card img {
     max-width: 100px;
     margin-right: 16px;
-    border-radius: 4px; /* Added rounded corners for images */
-}
-
-.link-card:hover {
-    background-color: var(--hover-bg);
-    transform: scale(1.005); /* Slightly enlarge the card on hover */
 }
 
 .link-card .content {
     flex-grow: 1;
-    text-align: left; /* Left-align text for better readability */
 }
 
 .link-card h3 {
     margin: 0 0 8px 0;
-    font-size: 1.25em; /* Increase heading size */
 }
 
 .link-card p {
-    margin: 0;
-    font-size: 1em; /* Standardize paragraph font size */
+    margin: 0 0 8px 0;
 }
 
+/* Styles for cards without links */
 .no-link {
     pointer-events: none;
     cursor: default;
@@ -63,20 +60,10 @@ body {
     background-color: var(--section-bg);
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    body {
-        margin: 6px;
-        padding: 6px;
-    }
-    .link-card {
-        flex-direction: column;
-        align-items: center; /* Center items on mobile */
-    }
-    .link-card img {
-        max-width: 100%;
-        margin: 0 0 8px 0; /* Add bottom margin to separate image and text */
-    }
     .link-card .content {
-        text-align: center; /* Center-align text on mobile */
+        padding-left: 0 !important;
+        text-align: left !important;
     }
 }

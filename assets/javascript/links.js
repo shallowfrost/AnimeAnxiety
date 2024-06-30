@@ -53,11 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (row[3]) { // Image link
                     let img = document.createElement('img');
                     img.src = row[3];
+                    if (row[7]) img.style.height = row[7];
+                    if (row[8]) img.style.width = row[8];
                     card.appendChild(img);
                 }
 
                 let content = document.createElement('div');
                 content.className = 'content';
+
+                if (row[5].toLowerCase() === 'true') { // Center text if 6th column is true
+                    content.style.textAlign = 'center';
+                }
+
+                if (row[6] && window.innerWidth > 768) { // Add padding-left on larger screens based on 7th column
+                    content.style.paddingLeft = `${row[6]}px`;
+                }
 
                 let title = document.createElement('h3');
                 title.textContent = row[0];
