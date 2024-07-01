@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const PADDING_LEFT_COLUMN = 6;
     const IMAGE_HEIGHT_COLUMN = 7;
     const IMAGE_WIDTH_COLUMN = 8;
-    const VERTICAL_LAYOUT_COLUMN = 9;
+    const PADDING_COLUMN = 9;
+    const VERTICAL_LAYOUT_COLUMN = 10;
 
     const SPREADSHEET_ID = '1c2LVY3M4CwtR0AYsdukq8V1mPiN5rLNVWo8MOUNR1Ds';
     const SHEET_ID = '1440147431';
@@ -67,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (row[IMAGE_COLUMN]) { // Image link
                     let img = document.createElement('img');
                     img.src = row[IMAGE_COLUMN];
-                    if (row[IMAGE_HEIGHT_COLUMN]) img.style.height = row[IMAGE_HEIGHT_COLUMN];
-                    if (row[IMAGE_WIDTH_COLUMN]) img.style.width = row[IMAGE_WIDTH_COLUMN];
+                    if (row[IMAGE_HEIGHT_COLUMN]) img.style.height = row[IMAGE_HEIGHT_COLUMN] || 'auto';
+                    if (row[IMAGE_WIDTH_COLUMN]) img.style.width = row[IMAGE_WIDTH_COLUMN] || 'auto';
                     card.appendChild(img);
                 }
 
@@ -80,11 +81,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 if (row[PADDING_LEFT_COLUMN] && window.innerWidth > 768) { // Add padding-left on larger screens based on column value
-                    content.style.paddingLeft = `${row[PADDING_LEFT_COLUMN]}px`;
+                    content.style.paddingLeft = row[PADDING_LEFT_COLUMN];
                 }
 
                 if (row[VERTICAL_LAYOUT_COLUMN].toLowerCase() === 'true') { // Stack content vertically if column is true
                     card.classList.add('vertical');
+                }
+
+                if (row[PADDING_COLUMN]) { // Add padding (top, right, bottom, left)
+                    let paddingValues = row[PADDING_COLUMN].split(' ').map(value => value.trim());
+                    if (paddingValues.length === 4) {
+                        card.style.padding = `${paddingValues[0]} ${paddingValues[1]} ${paddingValues[2]} ${paddingValues[3]}`;
+                    }
                 }
 
                 let title = document.createElement('h3');

@@ -21,14 +21,16 @@ body {
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 16px;
-    margin: 16px 0;
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
     text-decoration: none;
     color: var(--text-color);
     background-color: var(--section-bg);
     transition: background-color 0.3s;
+    width: calc(100% - 32px); /* Adjust to keep the width consistent */
     max-width: 768px;
+    box-sizing: border-box; /* Include padding and border in the width and height */
 }
 
 .link-card:hover {
@@ -64,19 +66,26 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    #linksContainer {
+        padding: 0px 5px;
+    }
+    .link-card {
+        margin: 10px;
+        width: calc(100% - 20px); /* Adjust width for mobile */
+    }
     .link-card.vertical {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
     .link-card.vertical img {
-        max-width: 150px; /* Assuming original size is 100px, this makes it 150% */
+        max-width: 350px;
         margin-right: 0;
     }
     .link-card.vertical .content {
-        padding-left: 10px;
-        padding-right: 10px;
-        width: calc(100% - 20px); /* Full width minus padding */
+        padding-left: 5px;
+        padding-right: 5px;
+        width: calc(100% - 10px); /* Full width minus padding */
         text-align: center; /* Center align text */
     }
 }
