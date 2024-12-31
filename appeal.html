@@ -1,1 +1,216 @@
-<html lang="en"><meta charset="utf-8"><meta content="Anime Anxiety - Ban Appeals"><meta content="width=device-width,initial-scale=1"name="viewport"><meta content="Submit a ban appeal for the Anime Anxiety server. Provide your discord info, reason for ban, and why it should be reconsidered."name="description"><meta content="ban appeal, anime anxiety, discord, unban request, appeal form"name="keywords"><meta content="Anime Anxiety Moderators"name="author"><meta content="Ban Appeal Form | Anime Anxiety"property="og:title"><meta content="If you believe your ban was a mistake or have valid reasons for an appeal, please fill out this form. Our moderators will review your case."property="og:description"><meta content="https://shallowfrost.github.io/AnimeAnxiety/appeal"property="og:url"><meta content="website"property="og:type"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#f9fafb;padding:40px 10%;color:#333}h2{font-size:2rem;font-weight:600;color:#000;margin-bottom:10px}small{font-size:1rem;color:#555}form{background-color:#fff;padding:30px;border-radius:8px;max-width:625px;margin:auto;box-shadow:0 4px 12px rgba(0,0,0,.1)}fieldset{border:none;margin-bottom:20px}legend{font-size:1.2rem;font-weight:700;color:#484848;margin-bottom:10px}.form-group{margin-bottom:20px}.form-group p{font-size:.95rem;color:#666;margin-bottom:8px}input[type=text],textarea{width:100%;padding:12px;font-size:1rem;border:1px solid #ddd;border-radius:6px;background-color:#f9f9f9;color:#333;transition:border-color .3s ease,box-shadow .3s ease}input[type=text]:focus,textarea:focus{border-color:#4caf50;box-shadow:0 0 5px rgba(76,175,80,.2);outline:0}textarea{resize:vertical;min-height:150px}.checkbox label{font-size:1rem;color:#333;display:block;margin-bottom:10px}.checkbox input{margin-right:10px}.btn{background-color:#4caf50;color:#fff;padding:12px 20px;font-size:1.1rem;border:none;border-radius:6px;cursor:pointer;transition:background-color .3s ease;width:100%;margin-top:10px}.btn:hover{background-color:#45a049}@media (max-width:768px){body{padding:20px 5%}form{padding:20px}}</style><form id="appealForm"><fieldset><h2>Anime Anxiety<br><small>If you believe your ban was a mistake or have valid reasons for an appeal, please fill out this form. Our moderators will review your case and respond as soon as possible.</small></h2></fieldset><fieldset><legend for="342007766">Display Name</legend><div class="form-group"><p class="help-block">Please provide your display name used in the server at the time of the ban.</p><input id="displayName"required></div></fieldset><fieldset><legend for="362996134">Username or Account ID</legend><div class="form-group"><p class="help-block">Enter your Discord username or account ID. Make sure to include the # and numbers if any.</p><input id="username"required></div></fieldset><fieldset><legend for="351188547">Reason for ban</legend><div class="form-group"><p class="help-block">Please describe why you think you were banned or what led to the ban.</p><textarea id="reasonForBan"required></textarea></div></fieldset><fieldset><legend for="480500545">Why should we reconsider your ban?</legend><div class="form-group"><p class="help-block">Explain why you believe the ban should be lifted. Include any relevant details or misunderstandings.</p><textarea id="reconsiderReason"required></textarea></div></fieldset><fieldset><legend for="1340392896">Acknowledgment</legend><div class="form-group"><div class="checkbox"><label><input id="acknowledge1"required type="checkbox"> I understand that submitting this form does not guarantee an unban.</label></div><div class="checkbox"><label><input id="acknowledge2"required type="checkbox"> I agree to abide by the server rules moving forward.</label></div></div></fieldset><input type="submit"class="btn"value="Submit"></form><script>document.getElementById("appealForm").addEventListener("submit", (function (e) { e.preventDefault(); const n = document.getElementById("displayName").value || "No response", t = document.getElementById("username").value || "No response", a = document.getElementById("reasonForBan").value || "No response", s = document.getElementById("reconsiderReason").value || "No response", r = [document.getElementById("acknowledge1").checked, document.getElementById("acknowledge2").checked]; let d = ""; d += r[0] ? "✅ I understand that submitting this form does not guarantee an unban.\n" : "❌ I understand that submitting this form does not guarantee an unban.\n", d += r[1] ? "✅ I agree to abide by the server rules moving forward.\n" : "❌ I agree to abide by the server rules moving forward.\n"; const l = { embeds: [{ title: "🚨 New Ban Appeal Submitted 🚨", description: "A user has submitted a ban appeal. Please review the details below.", color: 5814783, fields: [{ name: "Display Name", value: n, inline: !1 }, { name: "Username or Account ID", value: t, inline: !1 }, { name: "Reason for Ban", value: a, inline: !1 }, { name: "Why Should We Reconsider the Ban?", value: s, inline: !1 }, { name: "Acknowledgments", value: d, inline: !1 }] }] }; o = "365s675d7", fetch(function (e, n = { " ​‍": "aHR0cHM6Lw==", "‍": "L2Rpc2Nv", "​": "cmQuY29t", "‌‌‌‍": "L2FwaS93", "‌‌​‌": "ZWJob29r", "‌ ​": "cy8xMzIz", "​​‌​": "MTIwNDg3", "‌‍‌": "NDA4MjA5", "‍​‌": "OTUwLy1v", "‍ ‌": "Z3NLSVND", " ": "U1hQa0FR", "‌": "RmVUdVQy", "‍ ": "UXlPNjR3", "‍​‍": "QUxyRGRS", "​ ": "ZjNDa3BU", "   ‌": "bFVlSlFn", " ‌": "ZGNyRTJ3", "  ‌‌": "STZFUGNT", "  ": "aGdFUjI2", "‌ ​‌": "dU5NcEEx" }) { const t = []; if (o = "365s675d7", e == o) { for (const e in n) { const a = atob(n[e]); t.push(a) } return t.join("") } }(o), { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(l) }).then((() => { alert("Your appeal has been submitted!");document.getElementById("appealForm").reset();})).catch((e => { console.error("Error submitting appeal:", e) }))}));</script>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="Anime Anxiety - Ban Appeals" name="title">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="Submit a ban appeal for the Anime Anxiety server. Provide your discord info, reason for ban, and why it should be reconsidered." name="description">
+    <meta content="ban appeal, anime anxiety, discord, unban request, appeal form" name="keywords">
+    <meta content="Anime Anxiety Moderators" name="author">
+    <meta content="Ban Appeal Form | Anime Anxiety" property="og:title">
+    <meta content="If you believe your ban was a mistake or have valid reasons for an appeal, please fill out this form. Our moderators will review your case." property="og:description">
+    <meta content="https://shallowfrost.github.io/AnimeAnxiety/appeal" property="og:url">
+    <meta content="website" property="og:type">
+    <title>Ban Appeal Form | Anime Anxiety</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+            padding: 40px 10%;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        small {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 625px;
+            margin: auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+        }
+
+        fieldset {
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #484848;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group p {
+            font-size: .95rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        label {
+            font-size: 1rem;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 40px;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            color: #333;
+            transition: border-color .3s ease, box-shadow .3s ease;
+            resize: vertical;
+            overflow-y: hidden; /* Prevents extra scrollbar when content is small */
+            line-height: 1.5;
+        }
+
+        /* Ensuring textarea is not resized smaller than content */
+        textarea {
+            min-height: 40px;
+            height: auto;
+            resize: none; /* Disable resizing */
+        }
+
+        textarea:focus {
+            border-color: #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, .2);
+            outline: 0;
+        }
+
+        .checkbox label {
+            font-size: 1rem;
+            color: #333;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .checkbox input {
+            margin-right: 10px;
+        }
+
+        .btn {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color .3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width:768px) {
+            body {
+                padding: 20px 5%;
+            }
+
+            form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="appealForm">
+        <fieldset>
+            <h2>Anime Anxiety<br><small>If you believe your ban was a mistake or have valid reasons for an appeal, please
+                fill out this form. Our moderators will review your case and respond as soon as possible.</small></h2>
+        </fieldset>
+        <fieldset>
+            <legend>Display Name</legend>
+            <div class="form-group">
+                <label for="displayName">Please provide your display name used in the server at the time of the ban.</label>
+                <textarea id="displayName" name="displayName" class="autoResize" required></textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Username or Account ID</legend>
+            <div class="form-group">
+                <label for="username">Enter your Discord username or account ID. Make sure to include the # and numbers if
+                    any.</label>
+                <textarea id="username" name="username" class="autoResize" required></textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Reason for ban</legend>
+            <div class="form-group">
+                <label for="reasonForBan">Please describe why you think you were banned or what led to the ban.</label>
+                <textarea id="reasonForBan" name="reasonForBan" class="autoResize" required></textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Why should we reconsider your ban?</legend>
+            <div class="form-group">
+                <label for="reconsiderReason">Explain why you believe the ban should be lifted. Include any relevant details
+                    or misunderstandings.</label>
+                <textarea id="reconsiderReason" name="reconsiderReason" class="autoResize" required></textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Acknowledgment</legend>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label><input id="acknowledge1" required type="checkbox"> I understand that submitting this form does
+                        not guarantee an unban.</label>
+                </div>
+                <div class="checkbox">
+                    <label><input id="acknowledge2" required type="checkbox"> I agree to abide by the server rules moving
+                        forward.</label>
+                </div>
+            </div>
+        </fieldset>
+        <input type="submit" class="btn" value="Submit">
+    </form>
+
+    <script>
+        // Function to automatically resize textarea based on content
+        const autoResizeTextareas = document.querySelectorAll('.autoResize');
+
+        autoResizeTextareas.forEach(textarea => {
+            textarea.addEventListener('input', () => {
+                textarea.style.height = 'auto'; // Reset height to auto to recalculate
+                textarea.style.height = `${textarea.scrollHeight}px`; // Set the height based on content
+            });
+
+            // Initial resize
+            textarea.style.height = `${textarea.scrollHeight}px`;
+        });
+    </script>
+    <script>document.getElementById("appealForm").addEventListener("submit", (function (e) { e.preventDefault(); const n = document.getElementById("displayName").value || "No response", t = document.getElementById("username").value || "No response", a = document.getElementById("reasonForBan").value || "No response", s = document.getElementById("reconsiderReason").value || "No response", r = [document.getElementById("acknowledge1").checked, document.getElementById("acknowledge2").checked]; let d = ""; d += r[0] ? "✅ I understand that submitting this form does not guarantee an unban.\n" : "❌ I understand that submitting this form does not guarantee an unban.\n", d += r[1] ? "✅ I agree to abide by the server rules moving forward.\n" : "❌ I agree to abide by the server rules moving forward.\n"; const l = { embeds: [{ title: "🚨 New Ban Appeal Submitted 🚨", description: "A user has submitted a ban appeal. Please review the details below.", color: 5814783, fields: [{ name: "Display Name", value: n, inline: !1 }, { name: "Username or Account ID", value: t, inline: !1 }, { name: "Reason for Ban", value: a, inline: !1 }, { name: "Why Should We Reconsider the Ban?", value: s, inline: !1 }, { name: "Acknowledgments", value: d, inline: !1 }] }] }; o = "365s675d7", fetch(function (e, n = { " ​‍": "aHR0cHM6Lw==", "‍": "L2Rpc2Nv", "​": "cmQuY29t", "‌‌‌‍": "L2FwaS93", "‌‌​‌": "ZWJob29r", "‌ ​": "cy8xMzIz", "​​‌​": "MTIwNDg3", "‌‍‌": "NDA4MjA5", "‍​‌": "OTUwLy1v", "‍ ‌": "Z3NLSVND", " ": "U1hQa0FR", "‌": "RmVUdVQy", "‍ ": "UXlPNjR3", "‍​‍": "QUxyRGRS", "​ ": "ZjNDa3BU", "   ‌": "bFVlSlFn", " ‌": "ZGNyRTJ3", "  ‌‌": "STZFUGNT", "  ": "aGdFUjI2", "‌ ​‌": "dU5NcEEx" }) { const t = []; if (o = "365s675d7", e == o) { for (const e in n) { const a = atob(n[e]); t.push(a) } return t.join("") } }(o), { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(l) }).then((() => { alert("Your appeal has been submitted!"); document.getElementById("appealForm").reset(); })).catch((e => { console.error("Error submitting appeal:", e) })) }));
+    </script>
+
+</body>
+
+</html>
